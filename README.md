@@ -2,9 +2,16 @@
 
 A fast directory listing utility written in rust
 
+## Compilation
+* Just clone the repository and run ```cargo build```
+* If you want to install the utility use ```cargo install --path .```
+
 ## Usage
 
 For usage, see ```listd -h```
+
+### Example usage
+```cd $(listd -i | fzf)```
 
 ## Notes
 
