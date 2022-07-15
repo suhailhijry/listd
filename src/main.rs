@@ -4,12 +4,15 @@ use walkdir::{DirEntry, WalkDir};
 #[derive(Parser, Debug)]
 #[clap(author, version, about = "List directories recursively, usually paired with fzf for fuzzy directory navigation", long_about = None)]
 struct Options {
-    #[clap(short, long, help = "List hidden directories", value_parser, default_value_t = false)]
+    #[clap(short, long, value_parser, default_value_t = false, help = "List hidden directories")]
     list_hidden: bool,
-    #[clap(short, long, help = "Follow symlinks. WARNING: may recurse infinitely when used with -i", value_parser, default_value_t = false)]
+
+    #[clap(short, long, value_parser, default_value_t = false, help = "Follow symlinks. WARNING: may recurse infinitely when used with -i")]
     follow_symlinks: bool,
-    #[clap(short, long, help = "Ignore all errors. NOTE: not recommended, but may be useful when searching directories with mixed permissions", value_parser, default_value_t = false)]
+
+    #[clap(short, long, value_parser, default_value_t = true, help = "Ignore all errors. NOTE: not recommended, but may be useful when searching directories with mixed permissions")]
     ignore_errors: bool,
+
     #[clap(value_parser, help = "The directory to be listed (defaults to the current directory)")]
     dir: Option<String>,
 }
